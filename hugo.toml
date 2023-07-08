@@ -1,0 +1,8 @@
+baseURL = 'http://example.org/'
+languageCode = 'en-us'
+title = 'Bantay'
+theme = 'bantay'
+
+# Sidebar
+[params]
+about = 'Gil Locaylocay Caley is a 24-year-old developer based in Dallas-Ft. Worth.'

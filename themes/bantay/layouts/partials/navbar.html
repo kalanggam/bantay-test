@@ -1,0 +1,17 @@
+<nav id="navbar" class="p-1 h-fit self-end bg-stone-800 lg:col-[2]">
+  Navbar placeholder
+  {{- with .Site.Menus.main }}
+  <menu>
+    {{- range . }}
+    <li><a href="{{ .URL }}">
+      {{- if .Pre }}
+        {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
+        {{ $icon -}}
+      {{ end -}}
+      {{ $text := print .Name | safeHTML }}
+      {{- $text -}}
+    </a></li>
+    {{- end }}
+  </menu>
+  {{ end }}
+</nav>
