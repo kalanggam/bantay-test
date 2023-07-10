@@ -1,8 +1,12 @@
 <header id="header" class="p-2 lg:my-4 lg:col-span-2">
-  <h1 class="text-6xl lg:text-7xl font-bold lg:inline">
-    <a href="/" class="no-underline text-lavender-300">{{- .Site.Title -}}</a
-    ></h1
-  ><h2
-    class="text-5xl lg:text-7xl lg:inline text-stone-300 font-normal"
-  >{{ if .Title }} {{- .Title -}} {{ end }}_</h2>
+  <h1 class="text-5xl lg:text-7xl font-bold">
+    <a
+      href="/"
+      class="no-underline text-stone-100 visited:text-stone-100 hover:text-stone-100"
+      >{{- .Site.Title -}}</a
+    >
+  </h1>
+  <h2 class="text-4xl text-stone-300 font-normal mt-0">
+    {{ if (and .Title (ne .Title "Home")) }} {{- .Title -}} {{ end }}
+  </h2>
 </header>

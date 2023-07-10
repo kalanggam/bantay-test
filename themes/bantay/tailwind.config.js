@@ -7,16 +7,16 @@ module.exports = {
     extend: {
       colors: {
         lavender: {
-          50: '#f2e6ff',
-          100: '#e6ccff',
-          200: '#cc99ff',
-          300: '#b366ff',
-          400: '#9933ff',
-          500: '#8000ff',
-          600: '#6600cc',
-          700: '#4d0099',
-          800: '#330066',
-          900: '#1a0033',
+          50: "#f2e6ff",
+          100: "#e6ccff",
+          200: "#cc99ff",
+          300: "#b366ff",
+          400: "#9933ff",
+          500: "#8000ff",
+          600: "#6600cc",
+          700: "#4d0099",
+          800: "#330066",
+          900: "#1a0033",
         },
       },
       fontFamily: {
@@ -27,5 +27,5 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
