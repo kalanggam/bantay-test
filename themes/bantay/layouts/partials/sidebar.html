@@ -5,7 +5,7 @@
     >
       About
     </header>
-    {{- .Site.Params.Sidebar.About | safeHTML -}}
+    <p class="markdown p-0 lg:prose-base">{{- .Site.Params.Sidebar.About | markdownify -}}</p>
   </aside>
   {{- if .Site.Params.Sidebar.Links }}
   {{- with sort (sort (sort .Site.Params.Sidebar.Links "weight") "name") "url" }}
@@ -15,9 +15,9 @@
     >
       Links
     </header>
-    <menu>
+    <menu class="leading-8">
     {{- range . }}
-      <li><a href="{{ .url }}" rel="external">{{ .name }}</a></li>
+      <li><a href="{{ .url }}" class="underline text-sky-600">{{ .name }}</a></li>
     {{ end -}}
     </menu>
   </nav>

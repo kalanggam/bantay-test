@@ -7,30 +7,36 @@ theme = 'bantay'
 copyright = '&copy;2023 Gil Locaylocay Caley'
 sectionPagesMenu = 'main'
 
-[permalinks.page]
-blog = '/post/:slug/'
-poetry = '/poem/:slug/'
+[permalinks]
+  [permalinks.page]
+    blog = '/post/:slug/'
+    poetry = '/poem/:slug/'
 
 [params]
-# Sidebar
-# `about` will render in sidebar as safe HTML
-[params.sidebar]
-about = 'Gil Locaylocay Caley is a 24-year-old developer based in Dallas-Ft. Worth.'
+  mainSections = ['blog', 'poetry', 'essays']
 
-[[params.sidebar.links]]
-name = "Example link"
-url = "/"
-weight = 1
+  # Sidebar
+  # `about` will render in sidebar as safe HTML
+  [params.sidebar]
+    about = 'Gil Locaylocay Caley is a 24-year-old developer based in Dallas-Ft. Worth. [he/they](https://my.pronouns.page/are/he&they)'
 
-[[params.sidebar.links]]
-name = "Dxample link"
-url = "/"
-weight = 1
+    # Sidebar links
+    [[params.sidebar.links]]
+      name = "Example link"
+      url = "/"
+      weight = 1
 
-[[params.sidebar.links]]
-name = "Fxample link"
-url = "/"
-weight = 1
+    [[params.sidebar.links]]
+      name = "Dxample link"
+      url = "/"
+      weight = 1
 
-[markup.goldmark.renderer]
-unsafe = true
+    [[params.sidebar.links]]
+      name = "Fxample link"
+      url = "/"
+      weight = 1
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

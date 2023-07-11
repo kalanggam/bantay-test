@@ -1,11 +1,24 @@
 {{ define "main" -}}
 <main class="">
   {{- if .Content }}
-  <article class="markdown">{{ .Content | safeHTML }}</article>
-  {{ end -}} {{- with .Site.Pages.ByDate.Reverse }}
-  <article class="p-2 lg:p-0 space-y-2">
-    {{- range where . "Kind" "page" }}
-    <article class="relative">
+  <article class="markdown">
+    {{- if .Title }}
+    <header class="mb-8">
+      <h1 class="my-0">{{- .Title -}}</h1>
+      {{- if .Params.Subtitle }}
+      <h2 class="my-0 text-stone-500 font-normal italic">
+        {{- .Params.Subtitle -}}
+      </h2>
+      {{ end -}}
+    </header>
+    {{ end -}}
+    {{- .Content | safeHTML -}}
+    <hr>
+  </article>
+  {{ end -}} {{- with .Site.RegularPages.ByDate.Reverse }}
+  <article class="px-2 lg:p-0">
+    {{- range where . "Type" "in" site.Params.mainSections }}
+    <article class="relative my-6">
       <h1 class="text-xl font-bold">
         <a href="{{ .Permalink }}">{{ .Title }}</a>
       </h1>
