@@ -1,13 +1,20 @@
-<header id="header" class="p-2 lg:my-4 lg:col-span-2">
-  <h1 class="text-5xl lg:text-7xl font-bold">
-    <a
-      href="/"
-      class="no-underline text-stone-100 visited:text-stone-100 hover:text-stone-100"
-      >
-      {{- .Site.Title -}}
-    </a>
-  </h1>
-  <h2 class="text-4xl text-stone-300 font-normal mt-0">
-    {{ if (and .Title (ne .Title "Home")) }} {{- .Title -}} {{ end }}
-  </h2>
+<header id="header" class="p-2 lg:col-span-2 lg:my-4 lg:p-0">
+  <h1 class="brand"><a href="/" class="block">{{- .Site.Title -}}</a></h1>
+  <nav id="navbar">
+    <menu>
+      {{- $currentpage := .Title -}}
+      {{- range .Site.Menus.main }}
+      <li class="inline">
+        <a href="{{ .URL }}" class="{{ if eq $currentpage .Name }}underline{{ end }}">
+        {{- if .Pre }}
+          {{ $icon := printf "<i data-feather=\"%s\"></i> " .Pre | safeHTML }}
+          {{ $icon -}}
+        {{ end -}}
+        {{ $text := print .Name | safeHTML }}
+        {{- $text -}}
+      </a>
+    </li>
+      {{- end }}
+    </menu>
+  </nav>
 </header>

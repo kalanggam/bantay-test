@@ -1,23 +1,21 @@
 {{ define "main" -}}
-<main id="content">
-  <article class="p-2 bg-stone-700">
-    {{- if .Content }}{{ .Content }}{{ end -}}
-
-    {{- with .Pages.ByDate.Reverse }}
-    <h1>Content</h1>
-    {{- range . }}
-    <div class="mt-2 bg-stone-600 relative">
-      <div class="p-2">
-        <h1 class="underline text-xl">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h1>
-        <p>{{ .Summary }}</p>
-      </div>
-      <time class="p-1 bg-stone-700 absolute top-0 right-0">{{ .Date.Format "Mon, Jan 2, 2006" }}</time>
-    </div>
+<main class="p-2 lg:p-0">
+  {{- if .Content }}
+  <article class="markdown">{{ .Content }}</article>
+  {{ end -}} {{- with .Pages.ByDate.Reverse }}
+  <article class="relative">
+    {{- range where . "IsSection" false }}
+    <article class="">
+      <h1 class="text-xl font-bold">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h1>
+      <p>{{ .Summary }}</p>
+      <time class="absolute top-0 right-0"
+        >{{ .Date.Format "2006-01-02" }}</time
+      >
+    </article>
     {{ end -}}
-  {{ end -}}
   </article>
-  layouts/index.html
+  {{ end -}} layouts/index.html
 </main>
 {{- end }}

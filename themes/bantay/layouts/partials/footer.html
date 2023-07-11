@@ -1,9 +1,11 @@
-<footer id="footer" class="lg:col-[2] flex flex-row justify-center items-center space-x-4 my-4 text-stone-500 h-min">
-  <p>&copy;{{ now.Format "2006"}} gil caley</p>
-  <div class="border-r border-stone-600 h-8"></div>
+<footer id="footer" class="lg:col-[2] flex flex-row justify-center items-center space-x-4 my-4 h-min">
   <p>
-    <a href="https://github.com/kalanggam">bantay</a> theme
-    built with
-    <a href="https://gohugo.io/">hugo</a>
+    <a href="https://gohugo.io/">Hugo</a>
+    &#10005;
+    <a href="https://github.com/kalanggam/bantay-test">Bantay</a>
   </p>
+  {{- if .Site.Copyright }}
+  <div class="h-10 border-r border-r-black" aria-hidden="true"></div>
+  <p class="dark:font-bold">{{ .Site.Copyright | safeHTML }}</p>
+  {{ end -}}
 </footer>

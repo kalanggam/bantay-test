@@ -1,21 +1,30 @@
 {{ define "main" }}
 <main id="content" class="lg:min-h-[250px]">
-  <article class="p-2 bg-stone-700">
-    <h1>Posts</h1>
-    {{ range .Pages.ByPublishDate.Reverse }}
-    <div class="mt-2 bg-stone-600 relative">
-      <div class="p-2">
-        <h1 class="underline text-xl">
-          <a href="{{ .Permalink }}">{{ .Title }}</a>
-        </h1>
-        <p>{{ .Summary }}</p>
-      </div>
-      <time class="p-1 bg-stone-700 absolute top-0 right-0"
-        >{{ .Date.Format "Mon, Jan 2, 2006" }}</time
-      >
-    </div>
-    {{ end }}
+  <article id="markdown" class="markdown">
+    <header class="mb-8">
+      <span class="uppercase">Section</span>
+      <h1 class="my-0">{{- .Title -}}</h1>
+      {{- if .Params.Subtitle }}
+      <h2 class="my-0 text-stone-500 font-normal italic">
+        {{- .Params.Subtitle -}}
+      </h2>
+      {{ end -}}
+    </header>
+    {{- .Content -}}
   </article>
+  {{ range .Pages.ByPublishDate.Reverse }}
+  <div class="mt-2 relative">
+    <div class="">
+      <h1 class="underline text-xl">
+        <a href="{{ .Permalink }}">{{ .Title }}</a>
+      </h1>
+      <p>{{ .Summary }}</p>
+    </div>
+    <time class="absolute top-0 right-0"
+      >{{ .Date.Format "2006-01-02" }}</time
+    >
+  </div>
+  {{ end }}
   layouts/_default/list.html
 </main>
 {{ end }}

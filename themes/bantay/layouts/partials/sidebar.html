@@ -1,11 +1,26 @@
-<div id="sidebar" class="lg:row-[2] lg:pr-2">
-  <aside id="sidebar-about" class="bg-stone-800 p-2">
-    <h1
-      class="text-sm uppercase tracking-widest w-fit underline underline-offset-8 mt-0 mb-2 font-normal"
+<div id="sidebar" class="p-2 lg:p-0 lg:row-[2]">
+  <aside id="sidebar-about" class="mb-4">
+    <header
+      class="mt-0 mb-2 font-bold"
     >
       About
-    </h1>
-    {{- .Site.Params.About | safeHTML -}}
+    </header>
+    {{- .Site.Params.Sidebar.About | safeHTML -}}
   </aside>
-  <nav id="sidebar-nav">Sidebar nav placeholder</nav>
+  {{- if .Site.Params.Sidebar.Links }}
+  {{- with (sort .Site.Params.Sidebar.Links "weight") }}
+  <nav id="sidebar-nav">
+    <header
+      class="mt-0 mb-2 font-bold"
+    >
+      Links
+    </header>
+    <menu>
+    {{- range . }}
+      <li><a href="{{ .url }}">{{ .name }}</a></li>
+    {{ end -}}
+    </menu>
+  </nav>
+  {{ end -}}
+  {{ end -}}
 </div>
