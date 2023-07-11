@@ -13,18 +13,15 @@
     {{- .Content -}}
   </article>
   {{ range .Pages.ByPublishDate.Reverse }}
-  <div class="mt-2 relative">
-    <div class="">
-      <h1 class="underline text-xl">
-        <a href="{{ .Permalink }}">{{ .Title }}</a>
-      </h1>
-      <p>{{ .Summary }}</p>
-    </div>
-    <time class="absolute top-0 right-0"
+  <article class="mt-2 relative p-2 lg:p-0">
+    <h1 class="text-xl font-bold">
+      <a href="{{ .Permalink }}">{{ .Title }}</a>
+    </h1>
+    <p>{{ .Summary }}</p>
+    <time class="absolute top-2 right-2 lg:top-0 lg:right-0"
       >{{ .Date.Format "2006-01-02" }}</time
     >
-  </div>
+  </article>
   {{ end }}
-  layouts/_default/list.html
 </main>
 {{ end }}

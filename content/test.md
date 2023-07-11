@@ -29,3 +29,5 @@ It also does [links](https://www.example.com/). And images:
 |Check out this table! |You can align the contents.|Left, right, and center.|
 |:-|:-:|-:|
 |It's got a header row.|**Bold,** *italic*, ~~strikethrough~~|All in pure Markdown.|
+
+{{% hider "**Hider**" %}}*Check out this video:* {{< youtube Zz8OQddqqIE >}}{{% / hider %}}

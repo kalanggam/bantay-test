@@ -1,21 +1,21 @@
 {{ define "main" -}}
-<main class="p-2 lg:p-0">
+<main class="">
   {{- if .Content }}
-  <article class="markdown">{{ .Content }}</article>
-  {{ end -}} {{- with .Pages.ByDate.Reverse }}
-  <article class="relative">
-    {{- range where . "IsSection" false }}
-    <article class="">
+  <article class="markdown">{{ .Content | safeHTML }}</article>
+  {{ end -}} {{- with .Site.Pages.ByDate.Reverse }}
+  <article class="p-2 lg:p-0 space-y-2">
+    {{- range where . "Kind" "page" }}
+    <article class="relative">
       <h1 class="text-xl font-bold">
         <a href="{{ .Permalink }}">{{ .Title }}</a>
       </h1>
       <p>{{ .Summary }}</p>
-      <time class="absolute top-0 right-0"
+      <time class="absolute top-2 lg:top-0 right-2 lg:right-0"
         >{{ .Date.Format "2006-01-02" }}</time
       >
     </article>
     {{ end -}}
   </article>
-  {{ end -}} layouts/index.html
+  {{ end -}}
 </main>
 {{- end }}

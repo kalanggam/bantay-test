@@ -9,6 +9,7 @@ sectionPagesMenu = 'main'
 
 [permalinks.page]
 blog = '/post/:slug/'
+poetry = '/poem/:slug/'
 
 [params]
 # Sidebar
@@ -20,3 +21,16 @@ about = 'Gil Locaylocay Caley is a 24-year-old developer based in Dallas-Ft. Wor
 name = "Example link"
 url = "/"
 weight = 1
+
+[[params.sidebar.links]]
+name = "Dxample link"
+url = "/"
+weight = 1
+
+[[params.sidebar.links]]
+name = "Fxample link"
+url = "/"
+weight = 1
+
+[markup.goldmark.renderer]
+unsafe = true
